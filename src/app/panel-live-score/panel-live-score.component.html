@@ -1,0 +1,45 @@
+
+<div class="main-form">
+    <div class="form_header p-3 text-danger d-flex justify-content-center">
+        <h5>- Web Header -</h5>
+    </div>
+    <div class="row px-4 justify-content-center">
+        <div class="col-md-3 bg-light p-3 rounded-2 result-info">
+            <form #dataval1="ngForm" class="m-3">
+                <h5 class="text-secondory">Live Result</h5>
+                <input type="text" ngModel name="Add_market1" value="" class="col-12 mt-2" placeholder=" Market Name"><br>
+                <input type="text" ngModel name="Add_value1" value="" class="col-12 mt-2" placeholder="Add Market Result"><br>
+                <input type="date" ngModel name="Add_date1" value="" class="col-12 mt-2" placeholder="Add Market date"><br>
+                <input type="time" ngModel name="Add_time1" value="" class="col-12 mt-2" placeholder="Add Market time"><br>
+                <button class="btn btn-success mt-3" (click)="datadis_index1(dataval1.value)">{{editMode ? 'Update Product':'Add Product'}}</button>&nbsp;
+                <!-- <button class="btn btn-danger mt-3" (click)="datadis_index1(dataval1.value)">Update</button>&nbsp; -->
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<table class="table w-75 mt-3 m-auto" >
+    <thead>
+        <tr class="bg-light">
+            <th>Sr. </th>
+            <th>Market Name</th>
+            <th>Number</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th class="text-center">Edit details</th>
+            <th class="text-center">Delete details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataDin of datadb, index as i">
+            <td>{{i + 1}}</td>
+            <td>{{dataDin.Add_market1}}</td>
+            <td>{{dataDin.Add_value1}}</td>
+            <td>{{dataDin.Add_date1}}</td>
+            <td>{{dataDin.Add_time1}}</td>
+            <td class="text-primary cursor-pointer text-center"><a (click)="dataEDIT(i)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+            <td class="text-danger cursor-pointer text-center"><a (click)="dataDEL(i)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        </tr>
+    </tbody>
+</table>

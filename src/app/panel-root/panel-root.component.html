@@ -1,0 +1,46 @@
+<div class="header d-flex justify-content-between p-3 bg-light border border-1">
+    <button class="btn btn-danger text-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <button class="btn btn-danger">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+    </button>
+</div>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header bg-secondary">
+        <h5 class="offcanvas-title fw-bold text-light" id="offcanvasExampleLabel">Admin Panel</h5>
+        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                <a routerLink="admin_live_score" class="nav-link">Live Result</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="admin_old_result" class="nav-link ">Monthly Result</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="admin_live_user" class="nav-link ">Live Users Auth.</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="admin_Live_Gammer" class="nav-link ">Live Gamer</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="admin_add_money" class="nav-link ">Money Add</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="admin_trans_money" class="nav-link ">Money Transfer</a>
+            </li>
+        </ul>
+        <div class="dropdown mt-3">
+        </div>
+    </div>
+    <div class="offcanvas-footer bg-light pt-2">
+        <p class=" fw-bold ">Copyright @2023</p>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,128 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form #datamaster="ngForm" (ngSubmit)="datasub(datamaster.value)">
+                <h3 class="p-3 mb-4 bg-light">Monthly Result </h3>
+                <div class="d-flex justify-content-between">
+                    <select name="year" ngModel select class="form-select form-control" aria-label="Default select example" (change)="getyear($event.target)" ngModel  class="w-25">
+                        <option selected> - - Select Year - -</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                    <select name="month" ngModel select class="form-select form-control" aria-label="Default select example" (change)="getmonth($event.target)" ngModel class="w-25">
+                        <option selected> - - Select Month - -</option>
+                        <option value="Jan">Jan</option>
+                        <option value="Feb">Feb</option>
+                        <option value="Mar">Mar</option>
+                        <option value="Apr">Apr</option>
+                        <option value="May">May</option>
+                        <option value="Jun">Jun</option>
+                        <option value="Jul">Jul</option>
+                        <option value="Aug">Aug</option>
+                        <option value="Sep">Sep</option>
+                        <option value="Oct">Oct</option>
+                        <option value="Nov">Nov</option>
+                        <option value="Dec">Dec</option>
+                    </select>
+                </div>
+                <table class="m-3 w-100">
+                    <tr>
+                        <td><input type="text" placeholder="01" name="A1" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="02" name="A2" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="03" name="A3" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="04" name="A4" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="05" name="A5" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="06" name="A6" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="07" name="A7" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="08" name="A8" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="09" name="A9" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="10" name="A10" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="11" name="A11" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="12" name="A12" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="13" name="A13" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="14" name="A14" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="15" name="A15" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="16" name="A16" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="17" name="A17" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="18" name="A18" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="19" name="A19" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="20" name="A20" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="21" name="A21" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="22" name="A22" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="23" name="A23" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="24" name="A24" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="25" name="A25" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="26" name="A26" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="27" name="A27" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="28" name="A28" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="29" name="A29" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                        <td><input type="text" placeholder="30" name="A30" ngModel style="width: 36px; height: 35px;margin: 8px;" maxlength="3"></td>
+                    </tr>
+                </table>
+                <button class="btn btn-success" type="submit">{{editMode ? 'Update Value':'Add Record'}}</button>
+            </form>
+        </div>
+
+
+        <div class="col-md-12">
+            <table class="table w-100" *ngFor="let num of mainData, index as i">
+               <thead>
+                    <tr>
+                        <td colspan="3"><b>Month:</b> {{num.month}}</td>
+                        <td colspan="3"><b>Year:</b> {{num.year}}</td>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>    
+                        <td><b>01: </b>{{num.A1}}</td>
+                        <td><b>02: </b>{{num.A2}}</td>
+                        <td><b>03: </b>{{num.A3}}</td>
+                        <td><b>04: </b>{{num.A4}}</td>
+                        <td><b>05: </b>{{num.A5}}</td>
+                        <td><b>06: </b>{{num.A6}}</td>
+                        <td><b>07: </b>{{num.A7}}</td>
+                        <td><b>08: </b>{{num.A8}}</td>
+                        <td><b>09: </b>{{num.A9}}</td>
+                        <td><b>10: </b>{{num.A10}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>11: </b>{{num.A11}}</td>
+                        <td><b>12: </b>{{num.A12}}</td>
+                        <td><b>13: </b>{{num.A13}}</td>
+                        <td><b>14: </b>{{num.A14}}</td>
+                        <td><b>15: </b>{{num.A15}}</td>
+                        <td><b>16: </b>{{num.A16}}</td>
+                        <td><b>17: </b>{{num.A17}}</td>
+                        <td><b>18: </b>{{num.A18}}</td>
+                        <td><b>19: </b>{{num.A19}}</td>
+                        <td><b>20: </b>{{num.A20}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>21: </b>{{num.A21}}</td>
+                        <td><b>22: </b>{{num.A22}}</td>
+                        <td><b>23: </b>{{num.A23}}</td>
+                        <td><b>24: </b>{{num.A24}}</td>
+                        <td><b>25: </b>{{num.A25}}</td>
+                        <td><b>26: </b>{{num.A26}}</td>
+                        <td><b>27: </b>{{num.A27}}</td>
+                        <td><b>28: </b>{{num.A28}}</td>
+                        <td><b>29: </b>{{num.A29}}</td>
+                        <td><b>30: </b>{{num.A30}}</td>
+                        <td><a class="text-primary" (click)="dataEdit(i)"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                        <td><a class="text-danger" (click)="dataDel(i)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>  
