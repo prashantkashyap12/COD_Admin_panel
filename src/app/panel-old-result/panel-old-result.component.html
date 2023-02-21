@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <form #datamaster="ngForm" (ngSubmit)="datasub(datamaster.value)">
-                <h3 class="p-3 mb-4 bg-light">Monthly Result </h3>
+        <div class="col-md-12 ">
+            <h4 class="text-danger p-3"><i class="fa fa-calendar" aria-hidden="true"></i> Monthly Old <span class="text-dark">Result</span></h4>
+            <form #datamaster="ngForm" (ngSubmit)="datasub(datamaster.value)" class="bg-light p-3 rounded">
                 <div class="d-flex justify-content-between">
                     <select name="year" ngModel select class="form-select form-control" aria-label="Default select example" (change)="getyear($event.target)" ngModel  class="w-25">
                         <option selected> - - Select Year - -</option>
@@ -16,7 +16,7 @@
                         <option value="2023">2023</option>
                     </select>
                     <select name="month" ngModel select class="form-select form-control" aria-label="Default select example" (change)="getmonth($event.target)" ngModel class="w-25">
-                        <option selected> - - Select Month - -</option>
+                        <option> - - Select Month - -</option>
                         <option value="Jan">Jan</option>
                         <option value="Feb">Feb</option>
                         <option value="Mar">Mar</option>

@@ -1,1 +1,41 @@
-<p>panel-live-user works!</p>
+<form #dataProfile="ngForm" class="p-3 w-75 m-auto">
+    <h4><span class="text-danger"><i class="fa fa-user" aria-hidden="true"></i> User</span> Registration</h4>
+    <input type="text" ngModel name="id" placeholder="Enter User Id" class="form-control my-1">
+    <input type="text" ngModel name="Name" placeholder="Enter Name" class="form-control my-1">
+    <input type="text" ngModel name="contact" placeholder="Enter contact" class="form-control my-1">
+    <input type="text" ngModel name="address" placeholder="Enter Address" class="form-control my-1">
+    <input type="text" ngModel name="password" placeholder="Set Password" class="form-control my-1">
+    <button type="submit" class="btn btn-outline-danger mt-2 sm-btn" (click)="Addupdate(dataProfile.value)">{{userAction ? 'Add Profile' : 'Update Profile'}}</button>
+</form>
+
+<table class="table table-bordered table-striped w-75 m-auto mt-2" >
+    <thead class="bg-dark text-light " >
+        <tr>
+            <td colspan="7" class="text-center fw-bold">Live USER List</td>
+        </tr>
+        <tr>
+            <th>SR. No</th>
+            <th>USER_ID</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let data of profileData, index as i">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{data.id}}</td>
+            <td>{{data.Name}}</td>
+            <td>{{data.contact}}</td>
+            <td>{{data.address}}</td>
+            <td>{{data.password}}</td>
+            <td class="bg-secondory text-white text-center ">
+                <a (click)="userEdi(i)"><i class="fa fa-pencil-square-o bg-success rounded p-1 btn-action" aria-hidden="true"></i></a>&nbsp;
+                <a (click)="userDel(i)"><i class="fa fa-trash bg-danger rounded p-1 btn-action" aria-hidden="true"></i></a>
+            </td>
+        </tr> 
+    </tbody>
+
+</table>

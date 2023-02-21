@@ -1,1 +1,51 @@
-<p>panel-add-money works!</p>
+<form #moany_trasfer="ngForm" class="p-3">
+    <h4 class="text-danger p-3"><i class="fa fa-university" aria-hidden="true"></i> Money <span class="text-dark">Diposit</span></h4>
+    
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="data">Enter Pay Date -</label>
+            <input type="date" ngModel name="payDay" placeholder="Enter Date" class="form-control my-1">
+        </div>
+        <div class="form-group col-6">
+            <label for="data">Enter Name -</label>
+            <input type="text" ngModel name="name" placeholder="Enter Name" class="form-control my-1">
+        </div>
+    </div>
+    <input type="text" ngModel name="contact" placeholder="Enter contact" class="form-control my-1">
+    <input type="text" ngModel name="amount" placeholder="Enter Amount" class="form-control my-1">
+    <input type="file" ngModel name="sanpshot" placeholder="Enter Sanpshot" class="form-control my-1">
+    <input type="text" ngModel name="comment" placeholder="Enter comment" class="form-control my-1">
+    <button class="btn btn-outline-danger" (click)="moneyTrans(moany_trasfer.value)">Update Data</button>
+</form>
+
+
+
+<table class="table table-bordered w-75 m-auto mt-2">
+    <thead>
+        <tr class="table-dark">
+            <th>Sr. N</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Sanpshot</th>
+            <th class="text-center">Comment</th>
+            <th class="text-center">Status</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let data of AddFund, index as i">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{data.payDay}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.contact}}</td>
+            <td class="text-center">{{data.amount}}</td>
+            <td class="text-center">{{data.sanpshot}}</td>
+            <td class="text-center">{{data.comment}}</td>
+            <td class="text-center">
+                <a (click)="EditUSER(i)" class="text-primary"  ><i class="fa fa-edit" aria-hidden="true"></i></a> &nbsp;
+                <a (click)="delUSER(i)" class="text-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
