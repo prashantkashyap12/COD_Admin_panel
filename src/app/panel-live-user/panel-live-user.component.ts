@@ -1,74 +1,99 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserProfileService } from '../service/user-profile.service';
+import { UserService } from '../service/user.service';
+import { ToastrService } from 'ngx-toastr';
+// import { AngularFireDatabase } from '@angular/fire/compat/database';
+import firebase from 'firebase/compat/app';
+// import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, remove, set } from 'firebase/database';
 
-
+import { environment } from '../../environment';
 
 @Component({
   selector: 'app-panel-live-user',
   templateUrl: './panel-live-user.component.html',
-  styleUrls: ['./panel-live-user.component.css']
+  styleUrls: ['./panel-live-user.component.css'],
 })
 export class PanelLiveUserComponent {
- 
-  dataMap:any
+  userData: any;
+  walletAmount: any;
+  constructor(private service: UserService, private toastr: ToastrService) {}
+  userAction: boolean = true;
+  userId: any;
+  name: any;
+  phoneNumber: any;
+  address: any;
+  password: any;
+  @ViewChild('dataProfile') userForm!: NgForm;
 
-  userAction:boolean=true;
-
-  @ViewChild ('dataProfile') userForm!:NgForm;
-
-  constructor(private _userProData:UserProfileService){}
-
-
-  private usepro= 'https://ajay-bbdd1-default-rtdb.firebaseio.com/users.json';
-
-
-  profileData = [
-    {id:'101', Name: 'Prashant Kashyap', contact:'N/A', address:'N/A', Paymentinfo:'N/A', password:'1234567890'},
-    {id:'101', Name: 'Shivani Kashyap', contact:'N/A', address:'N/A', Paymentinfo:'N/A', password:'1234567890'}
-    
-  ]
-
-
-
-  ngOnInit(){
-    this._userProData.getProfile().subscribe(res=>{
-      console.log(res);
-    })
+  ngOnInit() {
+    this.getUser();
   }
 
-
-
+  getUser() {
+    this.service.getData().subscribe((res) => {
+      console.log(res, 'usersdata');
+      this.userData = Object.entries(res).map((e) => e[1]);
+    });
+  }
 
   //Add User
-  Addupdate(profile:any){
-    console.log(profile);
-    this.profileData.push(profile);
-    this._userProData.postProfile(this.profileData);
-  }
-
-
-   
-  // Edit User
-    userEdi(data:any){
-    this.userAction=false;
-    console.log(this.profileData[data]);
-    this.userForm.setValue({
-      id: this.profileData[data].id,
-      Name: this.profileData[data].Name,
-      contact: this.profileData[data].contact,
-      address: this.profileData[data].address,
-      Paymentinfo: this.profileData[data].Paymentinfo,
-      password: this.profileData[data].password
+  Addupdate() {
+    const db = getDatabase();
+    set(ref(db, 'users/' + this.userId), {
+      uid: this.userId,
+      firstName: this.name,
+      password: this.password,
+      address: this.address,
+      phoneNumber: this.phoneNumber,
+      walletAmount: this.walletAmount,
     })
+      .then(() => {
+        this.userAction
+          ? this.toastr.success('User Added Successfully')
+          : this.toastr.success('User Updated Successfully');
+        this.getUser();
+        this.clearForm();
+      })
+      .catch((error) => {
+        this.toastr.error('Error in User update');
+      });
   }
 
-    // Delete USER
-    userDel(data:any){
-    confirm("Do You want to permanently Delete = " + this.profileData[data].Name)
-    {
-      this.profileData.splice(data,1);
-      
-    }
+  clearForm() {
+    this.userId = '';
+    this.name = '';
+    this.password = '';
+    this.address = '';
+    this.phoneNumber = '';
+    this.walletAmount = '';
+  }
+
+  // Edit User
+  userEdit(data: any, i: number) {
+    this.userAction = false;
+    console.log(data, 'Edit user');
+    this.userForm.setValue({
+      id: data.uid || '',
+      Name: data.firstName || '',
+      contact: data.phoneNumber || '',
+      address: data.address || '',
+      password: data.password || '',
+      walletAmount: data.walletAmount || '',
+    });
+  }
+
+  // Delete USER
+  userDel(userId: string) {
+    const db = getDatabase();
+    const dbRef = ref(db, 'users/' + userId);
+    remove(dbRef)
+      .then(() => {
+        this.toastr.success('User Deleted Successfully');
+        this.getUser();
+      })
+      .catch(() => {
+        this.toastr.error('Error in User Delete');
+      });
   }
 }
