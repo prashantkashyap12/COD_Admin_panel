@@ -29,7 +29,10 @@ export class PanelLiveScoreComponent {
     this._indexData.dataGET().subscribe(res=>{
       this.datadb = res;
     })
+    
   }
+
+
 
   
   //Delete Funcation
@@ -41,24 +44,43 @@ export class PanelLiveScoreComponent {
   }
 
 
+  datadis_index1(data:any){
+    console.log(data);
+    this.datadb.push(data);
+    this._indexData.dataPUT(this.datadb)
+  }
+  datadis_update(dataup:any){
+    this._mainURL.put('https://ajay-bbdd1-default-rtdb.firebaseio.com/Live_result/'+this.dataEditTemp+'.json',
+    dataup).subscribe(res=>{
+    })
+  }
+
+
+
+
+
 
   // PUT API
-  datadis_index1(data:any){
-    if(this.editMarket.valid){
-      if(this.editMode){
-        this._mainURL.put('https://testauthangular-fbaee-default-rtdb.firebaseio.com/daily_result/'+this.dataEditTemp+'.json', data).subscribe(res=>{
-      })
-    }
-    else{
-      console.log(data);
-      this.datadb.push(data);
-      this._indexData.dataPUT(this.datadb);
-      }
-    }
-    else{
-      let key = Object.keys(this.editMarket.control);
-    }
-  }
+  // datadis_index1(data:any){
+  //   if(this.editMarket.valid){
+  //     if(this.editMode){
+  //       this._mainURL.put('https://ajay-bbdd1-default-rtdb.firebaseio.com/daily_result.json'+this.dataEditTemp+'.json', data).subscribe(res=>{
+  //     })
+  //   }
+  //   else{
+  //     console.log(data);
+  //     this.datadb.push(data);
+  //     this._indexData.dataPUT(this.datadb);
+  //     }
+  //   }
+  //   else{
+  //     let key = Object.keys(this.editMarket.control);
+  //   }
+  // }
+  // datadis_update(dataval1:any){
+  //   console.log(dataval1);
+  // }
+
   // Update program value
   dataEDIT(data1:any){
     this.editMode=true;

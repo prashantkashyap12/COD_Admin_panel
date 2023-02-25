@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class DailyResultsService {
 
-  private mainURL = "https://testauthangular-fbaee-default-rtdb.firebaseio.com/daily_result.json"
+  private mainURL = "https://ajay-bbdd1-default-rtdb.firebaseio.com/Live_result.json"
   constructor(private _results:HttpClient) { }
 
 

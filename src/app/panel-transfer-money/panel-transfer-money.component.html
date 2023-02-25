@@ -23,7 +23,7 @@
         </div>
     </div>
     <input type="text" ngModel name="amount" placeholder="Enter Amount" class="form-control my-1">
-    <input type="file" ngModel name="sanpshot" placeholder="Enter Sanpshot" class="form-control my-1">
+    <input type="text" ngModel name="sanpshot" placeholder="Enter Live wallet" class="form-control my-1">
     <input type="text" ngModel name="comment" placeholder="Enter comment" class="form-control my-1">
     <button class="btn btn-outline-danger" (click)="moneyTrans(moany_trasfer.value)">Update Data</button>
 </form>
@@ -37,12 +37,10 @@
             <th>Date</th>
             <th>Name</th>
             <th>Contact</th>
-
             <th class="text-center">Account Number</th>
             <th class="text-center">Account IFSC</th>
             <th class="text-center">Amount</th>
-            <th class="text-center">Sanpshot</th>
-
+            <th class="text-center">Live Wallet</th>
             <th class="text-center">Comment</th>
             <th class="text-center">Status</th>
         </tr>

@@ -11,7 +11,7 @@
                 <input type="date" ngModel name="Add_date1" value="" class="col-12 mt-2" placeholder="Add Market date"><br>
                 <input type="time" ngModel name="Add_time1" value="" class="col-12 mt-2" placeholder="Add Market time"><br>
                 <button class="btn btn-danger mt-3" (click)="datadis_index1(dataval1.value)">{{editMode ? 'Update Product':'Add Product'}}</button>&nbsp;
-                <!-- <button class="btn btn-danger mt-3" (click)="datadis_index1(dataval1.value)">Update</button>&nbsp; -->
+                <button class="btn btn-danger mt-3" (click)="datadis_update(dataval1.value)">Update</button>&nbsp;
             </form>
         </div>
     </div>

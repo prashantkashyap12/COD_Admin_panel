@@ -8,16 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class OldResultService {
   
-  private posturl = 'https://testauthangular-fbaee-default-rtdb.firebaseio.com/monthly_data.json';
+  private posturl = 'https://ajay-bbdd1-default-rtdb.firebaseio.com/monthly_data.json';
+
 
 private header = new HttpHeaders({'Content-Type':'COD-APP/JSON'})
   constructor(private _OldResultdata:HttpClient) {  }  
 
   // PUT API
   postData(datapost:any[]){
-  //  this._OldResultdata.put(this.posturl, datapost, {headers : this.header}).subscribe(data=>{
-  //   console.log(data);
-  //  })
+   this._OldResultdata.put(this.posturl, datapost, {headers : this.header}).subscribe(data=>{
+    console.log(data);
+   })
 
   this._OldResultdata.put(this.posturl,datapost).subscribe(res=>{
     console.log(res);

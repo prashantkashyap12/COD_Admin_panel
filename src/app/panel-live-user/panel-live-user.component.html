@@ -2,8 +2,9 @@
     <h4><span class="text-danger"><i class="fa fa-user" aria-hidden="true"></i> User</span> Registration</h4>
     <input type="text" ngModel name="id" placeholder="Enter User Id" class="form-control my-1">
     <input type="text" ngModel name="Name" placeholder="Enter Name" class="form-control my-1">
-    <input type="text" ngModel name="contact" placeholder="Enter contact" class="form-control my-1">
+    <input type="text" ngModel name="contact" placeholder="Enter contact" class="form-control my-1" maxlength="13">
     <input type="text" ngModel name="address" placeholder="Enter Address" class="form-control my-1">
+    <input type="text" ngModel name="Paymentinfo" placeholder="Payment info" class="form-control my-1">
     <input type="text" ngModel name="password" placeholder="Set Password" class="form-control my-1">
     <button type="submit" class="btn btn-outline-danger mt-2 sm-btn" (click)="Addupdate(dataProfile.value)">{{userAction ? 'Add Profile' : 'Update Profile'}}</button>
 </form>
@@ -19,6 +20,7 @@
             <th>Name</th>
             <th>Mobile</th>
             <th>Address</th>
+            <th>Payment Info</th>
             <th>Password</th>
             <th>Action</th>
         </tr>
@@ -30,6 +32,7 @@
             <td>{{data.Name}}</td>
             <td>{{data.contact}}</td>
             <td>{{data.address}}</td>
+            <td>{{data.Paymentinfo}}</td>
             <td>{{data.password}}</td>
             <td class="bg-secondory text-white text-center ">
                 <a (click)="userEdi(i)"><i class="fa fa-pencil-square-o bg-success rounded p-1 btn-action" aria-hidden="true"></i></a>&nbsp;

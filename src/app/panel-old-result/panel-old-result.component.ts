@@ -34,21 +34,26 @@ export class PanelOldResultComponent {
 
   // GET API Mathord
   ngOnInit(){
-    this._result.getData()
-      .pipe(map(dataMap=>{
-        console.log(dataMap);
-        const userArray:any = [];
-        for(const key in dataMap){
-          console.log( dataMap[key]);
-          if(dataMap.hasOwnProperty(key)){
-            userArray.push({mainID:key, ...dataMap[key]}) 
-          }
-        }
-        return userArray;
-      }))
-    .subscribe(res=>{
-    this.mainData = res;
+    this._result.getData().subscribe(res=>{
+      console.log(res);
+      this.mainData = res;
     })
+    // this._result.getData()
+    //   .pipe(map(dataMap=>{
+    //     console.log(dataMap);
+    //     const userArray:any = [];
+    //     for(const key in dataMap){
+    //       console.log( dataMap[key]);
+    //       if(dataMap.hasOwnProperty(key)){
+    //         userArray.push({mainID:key, ...dataMap[key]}) 
+    //       }
+    //     }
+    //     return userArray;
+    //   }))
+
+    // .subscribe(res=>{
+    // this.mainData = res;
+    // })
   }
 
   // Delete API 
@@ -66,8 +71,12 @@ export class PanelOldResultComponent {
     datasub(data:any){
     if(this.dataMaain.valid){
       if(this.editMode){
-        this._liveedit.put('https://testauthangular-fbaee-default-rtdb.firebaseio.com/monthly_data/'+this.tempDataId+'.json', data).subscribe(res=>{ 
+        
+        console.log('https://ajay-bbdd1-default-rtdb.firebaseio.com/monthly_data/'+this.tempDataId+'.json');
+        
+        this._liveedit.put('https://ajay-bbdd1-default-rtdb.firebaseio.com/monthly_data/'+this.tempDataId+'.json', data).subscribe(res=>{ 
         })
+
       }
     else{
       console.log(data);
