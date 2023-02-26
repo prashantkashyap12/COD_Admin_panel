@@ -1,0 +1,72 @@
+<form #dataProfile="ngForm" class="p-3 w-75 m-auto">
+  <h4>
+    <span class="text-danger"><i class="fa fa-user" aria-hidden="true"></i> User</span>
+    Registration
+  </h4>
+  <input type="text" ngModel [(ngModel)]="userId" name="id" placeholder="Enter User Id" class="form-control my-1" />
+  <input type="text" ngModel [(ngModel)]="name" name="Name" placeholder="Enter Name" class="form-control my-1" />
+  <input type="text" ngModel [(ngModel)]="phoneNumber" name="contact" maxlength="10" placeholder="Enter contact"
+    class="form-control my-1"  />
+  <input type="text" ngModel [(ngModel)]="userEmail" name="email"  placeholder="Enter Email"
+    class="form-control my-1"  />  <!-- Add new Email -->
+  <input type="text" ngModel [(ngModel)]="userPaymnetInfo" name="Payment_Info" maxlength="10" placeholder="Enter Payment Info"
+  class="form-control my-1"  />  <!-- Add new PaymentInfo -->
+  <input type="text" ngModel [(ngModel)]="userJobPost" name="Post_Job" maxlength="10" placeholder="Enter Set Post"
+  class="form-control my-1"  />  <!-- Add new POST JOb -->
+  <input type="text" ngModel [(ngModel)]="surName" name="SurName" maxlength="10" placeholder="Enter Sur Name"
+  class="form-control my-1"  />  <!-- Add new SurName -->
+  <input type="text" ngModel name="address" [(ngModel)]="address" placeholder="Enter Address"
+    class="form-control my-1" />
+  <input type="text" ngModel name="password" [(ngModel)]="password" placeholder="Set Password"
+    class="form-control my-1" /> <!-- Password profile page **-->
+  <input type="text" ngModel name="walletAmount" [(ngModel)]="walletAmount" placeholder="Set wallet Amount"
+    class="form-control my-1" />
+  <button type="submit" class="btn btn-outline-danger mt-2 sm-btn" (click)="Addupdate()">
+    {{ userAction ? "Add Profile" : "Update Profile" }}
+  </button>
+</form>
+
+<table class="table table-bordered table-striped w-75 m-auto mt-2">
+  <thead class="bg-dark text-light">
+    <tr>
+      <td colspan="12" class="text-center fw-bold">Live USER List</td>
+    </tr>
+    <tr>
+      <th>SR. No</th>
+      <th>USER_ID</th>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Email</th>    <!-- email Add -->
+      <th>Payment Info</th>    <!-- Payment Info -->
+      <th>Job Post</th>    <!-- Job Post -->
+      <th>Sur Name</th>    <!-- Sur Name -->
+      <th>Address</th>
+      <th>Password</th>      
+      <th>Wallet Amount</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let data of userData; index as i">
+    <tr>
+      <td>{{ i + 1 }}</td>
+      <td>{{ data.uid | slice:0:7 }}</td>
+      <td>{{ data.firstName }}</td>
+      <td>{{ data.phoneNumber }}</td>
+
+      <td>{{data.email}}</td>    <!-- email Add -->
+      <td>{{data.Payment_Info}}</td> <!-- Payment Info -->
+      <td>{{data.Post_Job}}</td> <!-- Job Post -->
+      <td>{{ data.surName }}</td>
+
+      <td>{{ data.address }}</td>
+      <td>{{ data.password }}</td>
+      <td>{{ data.walletAmount }}</td>
+      <td class="bg-secondory text-white text-center">
+        <a (click)="userEdit(data, i)"><i class="fa fa-pencil-square-o bg-success rounded p-1 btn-action"
+            aria-hidden="true"></i></a>&nbsp;
+        <a (click)="userDel(data.uid)"><i class="fa fa-trash bg-danger rounded p-1 btn-action"
+            aria-hidden="true"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

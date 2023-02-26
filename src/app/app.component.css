@@ -1,0 +1,19 @@
+.top-header{
+    height: 170px;
+    background-color: brown;
+}
+.main-form{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    margin-top: -25px;
+    height:50vh;
+}
+.classmFalse{
+    width: 250px;
+}
+input [type=text]{
+    border-bottom: 2px solid red;
+}
+.form-btn{
+    border-radius: 40px;
+}

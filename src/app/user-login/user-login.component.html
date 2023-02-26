@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row p-5">
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+        <div class="col-6 bg-light p-5 border">
+            <form  (ngSubmit)="dataLogin()">   
+                <h4><span class="text-danger fw-bold">User</span>Login</h4>
+                <div class="col-12 py-2">
+                    <label for="UserInput">User Email</label>
+                    <input type="text" id="UserInput" placeholder="Enter User name" formControlName="username" class="form-control">
+                </div>
+                
+                <div class="col-12 py-2">
+                    <label for="passwordInput">Password</label>
+                    <input type="password" id="passwordInput" placeholder="Enter User Password" formControlName="password" class="form-control">
+                </div>
+                <button class="btn btn-danger btn-block my-1" type="submit"> Login</button>
+            </form>
+            Do not have Account <a class="text-danger" style="text-decoration: none;" routerLink="/signup"> Create One</a><br>
+            <a class="text-danger" style="text-decoration: none;" routerLink="/forget" >Forget Password ?</a>    
+        </div>
+        <div class="col-6 bg-light">
+            <img src="../../assets/user_login.png" class="w-100 mt-5 m-auto" alt="">
+        </div>
+    </div>
+</div>
