@@ -9,6 +9,7 @@
     type="text"
     ngModel
     name="id"
+    disabled
     [(ngModel)]="userId"
     placeholder="Enter User Id"
     class="form-control my-1"
@@ -16,9 +17,17 @@
   <input
     type="text"
     ngModel
-    name="Name"
-    [(ngModel)]="name"
-    placeholder="Enter Name"
+    name="firstName"
+    [(ngModel)]="firstName"
+    placeholder="Enter First Name"
+    class="form-control my-1"
+  />
+  <input
+    type="text"
+    ngModel
+    name="surName"
+    [(ngModel)]="surName"
+    placeholder="Enter SurName"
     class="form-control my-1"
   />
   <input
@@ -70,7 +79,9 @@
     <tr>
       <th>SR. No</th>
       <th>USER_ID</th>
-      <th>Name</th>
+      <th>First Name</th>
+      <th>Sur Name</th>
+      <th>Email Id</th>
       <th>Mobile</th>
       <th>Address</th>
       <th>Password</th>
@@ -82,7 +93,9 @@
     <tr>
       <td>{{ i + 1 }}</td>
       <td>{{ data.uid }}</td>
-      <td>{{ data.firstName }} {{ data.surName }}</td>
+      <td>{{ data.firstName }}</td>
+      <td>{{ data.surName }}</td>
+      <td>{{ data.emailId }}</td>
       <td>{{ data.phoneNumber }}</td>
       <td>{{ data.address }}</td>
       <td>{{ data.password }}</td>

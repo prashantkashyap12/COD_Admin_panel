@@ -21,6 +21,9 @@ export class PanelLiveUserComponent {
   userAction: boolean = true;
   userId: any;
   name: any;
+  firstName: any;
+  surName: any;
+  emailId: any;
   phoneNumber: any;
   address: any;
   password: any;
@@ -39,15 +42,19 @@ export class PanelLiveUserComponent {
 
   //Add User
   Addupdate() {
-    const db = getDatabase();
-    set(ref(db, 'users/' + this.userId), {
-      uid: this.userId,
-      firstName: this.name,
-      password: this.password,
-      address: this.address,
-      phoneNumber: this.phoneNumber,
-      walletAmount: this.walletAmount,
-    })
+    firebase
+      .database()
+      .ref('users/' + this.userId)
+      .update({
+        uid: this.userId,
+        firstName: this.firstName,
+        surName: this.surName,
+        email: this.emailId,
+        password: this.password,
+        address: this.address,
+        phoneNumber: this.phoneNumber,
+        walletAmount: this.walletAmount,
+      })
       .then(() => {
         this.userAction
           ? this.toastr.success('User Added Successfully')
@@ -58,6 +65,18 @@ export class PanelLiveUserComponent {
       .catch((error) => {
         this.toastr.error('Error in User update');
       });
+
+    // const db = getDatabase();
+    // set(ref(db, 'users/' + this.userId), {
+    //   uid: this.userId,
+    //   firstName: this.firstName,
+    //   surName: this.surName,
+    //   email: this.emailId,
+    //   password: this.password,
+    //   address: this.address,
+    //   phoneNumber: this.phoneNumber,
+    //   walletAmount: this.walletAmount,
+    // })
   }
 
   clearForm() {
